@@ -130,6 +130,7 @@ IdentStroka operator+(const char* inputFirst, const IdentStroka& inputSecond)
 	char* tmp = new char[strlen(inputFirst)+inputSecond.getlen()];
 	strcpy_s(tmp, strlen(inputFirst) + 1, inputFirst);
 	cat(tmp, inputSecond.pointerChar);
+	cout << "Отработал оператор IdentStroka operator+(const char* inputFirst, const IdentStroka& inputSecond)" << endl;
 	return tmp;
 }
 

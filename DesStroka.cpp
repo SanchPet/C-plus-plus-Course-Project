@@ -73,6 +73,7 @@ DesStroka operator+(const DesStroka& inputFirst, const DesStroka& inputSecond)
 	int sum = inputFirst.getvalue() + inputSecond.getvalue();
 	DesStroka tmp(strlen(""+sum));
 	strcpy_s(tmp.pointerChar, tmp.length + 1, ""+sum);
+	cout << "Отработал оператор DesStroka operator+(const DesStroka& inputFirst, const DesStroka& inputSecond)" << endl;
 	return tmp;
 }
 
@@ -81,6 +82,7 @@ DesStroka operator+(const DesStroka& inputFirst, const char* inputSecond)
 	int sum = inputFirst.getvalue() + atoi(inputSecond);
 	DesStroka tmp(strlen("" + sum));
 	strcpy_s(tmp.pointerChar, tmp.length + 1, "" + sum);
+	cout << "Отработал оператор DesStroka operator+(const DesStroka& inputFirst, const char* inputSecond)" << endl;
 	return tmp;
 }
 
@@ -89,5 +91,6 @@ DesStroka operator+(const char* inputFirst, const DesStroka& inputSecond)
 	int sum = inputSecond.getvalue() + atoi(inputFirst);
 	DesStroka tmp(strlen("" + sum));
 	strcpy_s(tmp.pointerChar, tmp.length + 1, "" + sum);
+	cout << "Отработал оператор DesStroka operator+(const DesStroka& inputFirst, const char* inputSecond)" << endl;
 	return tmp;
 }
