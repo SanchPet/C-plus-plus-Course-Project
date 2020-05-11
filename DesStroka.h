@@ -1,5 +1,6 @@
 #pragma once
 #include "Stroka.h"
+#include<iostream>
 class DesStroka :
 	public Stroka
 {
