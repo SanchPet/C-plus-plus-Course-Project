@@ -1,4 +1,5 @@
 #pragma once
+#include <vector> 
 
 class Stroka
 {
@@ -6,9 +7,10 @@ protected:
 	int length;
 	char* pointerChar;
 public:
-	char* getstr() const { return  pointerChar; }
-	int getlen() const { return length; }
-	void show();
+	char* GetStr() const { cout << "Отработал метод Stroka::getStr()";  return  pointerChar; }
+	int GetLen() const { cout << "Отработал метод Stroka::getLen()";  return length; }
+	void Show();
+
 
 	Stroka();
 	Stroka(int);

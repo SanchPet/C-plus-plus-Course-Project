@@ -2,10 +2,13 @@
 #include<iostream>
 using namespace std;
 
+
 bool DesStroka::IsPositive()
 {
-	if (pointerChar[0] == '-') return false;
-	else return true;
+	if (pointerChar[0] == '-') { cout << "Отработал метод DesStroka::IsPositive()" << endl; return false; }
+	else {
+		cout << "Отработал метод DesStroka::IsPositive()" << endl; return true;
+	}
 }
 
 DesStroka::DesStroka() : Stroka() {
@@ -70,7 +73,7 @@ DesStroka& DesStroka::operator=(const DesStroka& input)
 
 DesStroka operator+(const DesStroka& inputFirst, const DesStroka& inputSecond)
 {
-	int sum = inputFirst.getvalue() + inputSecond.getvalue();
+	int sum = inputFirst.getValue() + inputSecond.getValue();
 	DesStroka tmp(strlen(""+sum));
 	strcpy_s(tmp.pointerChar, tmp.length + 1, ""+sum);
 	cout << "Отработал оператор DesStroka operator+(const DesStroka& inputFirst, const DesStroka& inputSecond)" << endl;
@@ -79,7 +82,7 @@ DesStroka operator+(const DesStroka& inputFirst, const DesStroka& inputSecond)
 
 DesStroka operator+(const DesStroka& inputFirst, const char* inputSecond)
 {
-	int sum = inputFirst.getvalue() + atoi(inputSecond);
+	int sum = inputFirst.getValue() + atoi(inputSecond);
 	DesStroka tmp(strlen("" + sum));
 	strcpy_s(tmp.pointerChar, tmp.length + 1, "" + sum);
 	cout << "Отработал оператор DesStroka operator+(const DesStroka& inputFirst, const char* inputSecond)" << endl;
@@ -88,7 +91,7 @@ DesStroka operator+(const DesStroka& inputFirst, const char* inputSecond)
 
 DesStroka operator+(const char* inputFirst, const DesStroka& inputSecond)
 {
-	int sum = inputSecond.getvalue() + atoi(inputFirst);
+	int sum = inputSecond.getValue() + atoi(inputFirst);
 	DesStroka tmp(strlen("" + sum));
 	strcpy_s(tmp.pointerChar, tmp.length + 1, "" + sum);
 	cout << "Отработал оператор DesStroka operator+(const DesStroka& inputFirst, const char* inputSecond)" << endl;

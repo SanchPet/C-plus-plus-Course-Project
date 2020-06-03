@@ -109,17 +109,17 @@ char& IdentStroka::operator[](int index)
 
 IdentStroka operator+(const IdentStroka& inputFrist, const IdentStroka& inputSecond)
 {
-	IdentStroka tmp(inputFrist.getlen() + inputSecond.getlen());
-	strcpy_s(tmp.pointerChar, tmp.length + 1, inputFrist.getstr());
-	cat(tmp.pointerChar, inputSecond.getstr());
+	IdentStroka tmp(inputFrist.GetLen() + inputSecond.GetLen());
+	strcpy_s(tmp.pointerChar, tmp.length + 1, inputFrist.GetStr());
+	cat(tmp.pointerChar, inputSecond.GetStr());
 	cout << "Отработал оператор IdentStroka operator + (const IdentStroka&, const IdentStroka&)" << endl;
 	return tmp;
 }
 
 IdentStroka operator+(const IdentStroka& inputFirst, const char* inputSecond)
 {
-	IdentStroka tmp((int)(inputFirst.getlen() + strlen(inputSecond)));
-	strcpy_s(tmp.pointerChar, tmp.length + 1, inputFirst.getstr());
+	IdentStroka tmp((int)(inputFirst.GetLen() + strlen(inputSecond)));
+	strcpy_s(tmp.pointerChar, tmp.length + 1, inputFirst.GetStr());
 	cat(tmp.pointerChar, (char*)inputSecond);
 	cout << "Отработал оператор IdentStroka operator + (const IdentStroka&, const char*)" << endl;
 	return tmp;
@@ -127,7 +127,7 @@ IdentStroka operator+(const IdentStroka& inputFirst, const char* inputSecond)
 
 IdentStroka operator+(const char* inputFirst, const IdentStroka& inputSecond)
 {
-	char* tmp = new char[strlen(inputFirst)+inputSecond.getlen()];
+	char* tmp = new char[strlen(inputFirst)+inputSecond.GetLen()];
 	strcpy_s(tmp, strlen(inputFirst) + 1, inputFirst);
 	cat(tmp, inputSecond.pointerChar);
 	cout << "Отработал оператор IdentStroka operator+(const char* inputFirst, const IdentStroka& inputSecond)" << endl;

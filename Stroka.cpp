@@ -1,13 +1,16 @@
 #include "Stroka.h"
 #include<iostream>
+
 using namespace std;
 
-void Stroka::show(void)
+
+
+void Stroka::Show(void)
 {
 	cout << "Значение поля pointerChar: " << pointerChar << endl;
 	cout << "Значение поля length: " << length << endl;
+	cout << "Отработал метод Stroka::Show" << endl;
 }
-
 
 
 Stroka::Stroka()
