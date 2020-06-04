@@ -28,7 +28,7 @@ IdentStroka::IdentStroka(char input) : Stroka(input) {
 		length = 0;
 		pointerChar = new char[length + 1];
 		pointerChar[0] = '\0';
-		cout << "Некорректное название для идентификатора" << endl << endl;
+		cout << "Некорректное название для идентификатора" << endl;
 		cout << "Отработал конструктор IdentStroka(char)" << endl;
 	}	
 }
@@ -48,7 +48,7 @@ IdentStroka::IdentStroka(const char* input) : Stroka(input) {
 				length = 0;
 				pointerChar = new char[length + 1];
 				pointerChar[0] = '\0';
-				cout << "Некорректное название для идентификатора" << endl << endl;
+				cout << "Некорректное название для идентификатора" << endl;
 				cout << "Отработал конструктор IdentStroka(const char*)" << endl;
 				return;
 			}
@@ -59,7 +59,7 @@ IdentStroka::IdentStroka(const char* input) : Stroka(input) {
 		length = 0;
 		pointerChar = new char[length + 1];
 		pointerChar[0] = '\0';
-		cout << "Некорректное название для идентификатора" << endl << endl;
+		cout << "Некорректное название для идентификатора" << endl;
 		cout << "Отработал конструктор IdentStroka(const char*)" << endl;
 		return;
 	}
@@ -102,7 +102,7 @@ char& IdentStroka::operator[](int index)
 	}
 	else
 	{
-		cout << "Неправильный индекс. В результат вошёл первый символ строки." << endl << endl;
+		cout << "Неправильный индекс. В результат вошёл первый символ строки." << endl;
 		return pointerChar[0];
 	}
 }

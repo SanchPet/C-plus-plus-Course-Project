@@ -6,7 +6,7 @@ class DesStroka :
 {
 public:
 	bool IsPositive();
-	int getValue() const { return atoi(pointerChar); }
+	int GetValue() const { return atoi(pointerChar); }
 
 	DesStroka();
 	DesStroka(int);

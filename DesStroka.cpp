@@ -30,7 +30,7 @@ DesStroka::DesStroka(const char* input) : Stroka(input) {
 				pointerChar = new char[length + 1];
 				pointerChar[0] = '0';
 				pointerChar[1] = '\0';
-				cout << "Неверный формат десятичной строки" << endl << endl;
+				cout << "Неверный формат десятичной строки" << endl;
 				cout << "Отработал конструктор DesStroka(const char*)" << endl;
 				return;
 			}
@@ -42,7 +42,7 @@ DesStroka::DesStroka(const char* input) : Stroka(input) {
 		pointerChar = new char[length + 1];
 		pointerChar[0] = '0';
 		pointerChar[1] = '\0';
-		cout << "Неверный формат десятичной строки" << endl << endl;
+		cout << "Неверный формат десятичной строки" << endl;
 		cout << "Отработал конструктор DesStroka(const char*)" << endl;
 		return;
 	}
@@ -73,7 +73,7 @@ DesStroka& DesStroka::operator=(const DesStroka& input)
 
 DesStroka operator+(const DesStroka& inputFirst, const DesStroka& inputSecond)
 {
-	int sum = inputFirst.getValue() + inputSecond.getValue();
+	int sum = inputFirst.GetValue() + inputSecond.GetValue();
 	DesStroka tmp(strlen(""+sum));
 	strcpy_s(tmp.pointerChar, tmp.length + 1, ""+sum);
 	cout << "Отработал оператор DesStroka operator+(const DesStroka& inputFirst, const DesStroka& inputSecond)" << endl;
@@ -82,7 +82,7 @@ DesStroka operator+(const DesStroka& inputFirst, const DesStroka& inputSecond)
 
 DesStroka operator+(const DesStroka& inputFirst, const char* inputSecond)
 {
-	int sum = inputFirst.getValue() + atoi(inputSecond);
+	int sum = inputFirst.GetValue() + atoi(inputSecond);
 	DesStroka tmp(strlen("" + sum));
 	strcpy_s(tmp.pointerChar, tmp.length + 1, "" + sum);
 	cout << "Отработал оператор DesStroka operator+(const DesStroka& inputFirst, const char* inputSecond)" << endl;
@@ -91,7 +91,7 @@ DesStroka operator+(const DesStroka& inputFirst, const char* inputSecond)
 
 DesStroka operator+(const char* inputFirst, const DesStroka& inputSecond)
 {
-	int sum = inputSecond.getValue() + atoi(inputFirst);
+	int sum = inputSecond.GetValue() + atoi(inputFirst);
 	DesStroka tmp(strlen("" + sum));
 	strcpy_s(tmp.pointerChar, tmp.length + 1, "" + sum);
 	cout << "Отработал оператор DesStroka operator+(const DesStroka& inputFirst, const char* inputSecond)" << endl;

@@ -5,6 +5,7 @@
 #include <vector>
 using namespace std;
 Stroka* input();
+bool Check(Stroka** allObjects);
 static vector<string> objectType;
 
 	int main() {
@@ -14,10 +15,22 @@ static vector<string> objectType;
 		{
 			allObjects[i] = input();
 		}
+		cout << "---------------------------------------------------------------------------" << endl;
 		cout << "Экземпляры классов созданы. Теперь для созданных экземпляров будет произведена проверка всех разработанных методов" << endl;	
+		cout << "---------------------------------------------------------------------------" << endl;
+		if (Check(allObjects)) {
+			cout << "---------------------------------------------------------------------------" << endl;
+			cout << "Проверка методов прошла без ошибок. Об успешности реализации можно судить из информации в консоли вывода." << endl;
+		}
+		else {
+			cout << "---------------------------------------------------------------------------" << endl;
+			cout << "Во время проверки разработанных методов произошла ошибка. Используйте отладку для устранения." << endl;
+		}
+
 	}
 
 	Stroka* input() {
+		cout << "------------------------------------------------------------" << endl;
 		cout << "Выберите класс. Строка_идентификатор - введите \"1\"; Десятичная_строка - введите \"2\"" << endl << "Введите номер: ";
 		int classNumber;
 		cin >> classNumber;
@@ -25,8 +38,7 @@ static vector<string> objectType;
 			cout << "Введён неверный номер. Введите номер ещё раз: ";
 			cin.clear();
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			cin >> classNumber;
-			
+			cin >> classNumber;		
 		}
 		if (classNumber == 1) {
 			cout << "Введите идентификатор: ";
@@ -51,23 +63,43 @@ static vector<string> objectType;
 	}
 
 	bool Check(Stroka** allObjects) {
-		int objectsCount = 1;
 		for (size_t i = 0; i < 5; i++)
 		{
 			if (objectType[i] == "IdentStroka") {
-				cout << allObjects[i]->GetStr() << endl;
-				cout << allObjects[i]->GetLen() << endl;
-				allObjects[i]->Show();
-				IdentStroka* tmp = new IdentStroka("itmo");
-				allObjects[i] = tmp;
-				allObjects[i][3];
-				IdentStroka tmp2("fbit");
-				IdentStroka tmp3(" top faculty");
-				cout << (tmp3 + tmp2).GetStr << endl;
-				cout << ((IdentStroka)*(allObjects[i]) + tmp2).GetStr();
+				try {
+					cout << allObjects[i]->GetStr() << endl;
+					cout << allObjects[i]->GetLen() << endl;
+					IdentStroka tmp("itmo");
+					*(allObjects[i]) = tmp;
+					allObjects[i][3];
+					IdentStroka tmp2("fbit");
+					cout << (*(IdentStroka*)(allObjects[i]) + tmp2).GetStr() << endl;
+					cout << (*(IdentStroka*)(allObjects[i]) + "hello world").GetStr() << endl;
+					cout << ("My name is Alex " + *(IdentStroka*)(allObjects[i])).GetStr() << endl;
+					allObjects[i]->Show();
+				}
+				catch(exception e){
+					return false;
+				}
+				return true;
 			}
 			else {
-
+				try {
+					cout << allObjects[i]->GetStr() << endl;
+					cout << allObjects[i]->GetLen() << endl;
+					cout << ((DesStroka*)allObjects[i])->IsPositive() << endl;
+					cout << ((DesStroka*)allObjects[i])->GetValue() << endl;
+					DesStroka tmp("125");
+					*(allObjects[i]) = tmp;
+					cout << (*(DesStroka*)(allObjects[i]) + tmp).GetValue() << endl;
+					cout << (*(DesStroka*)(allObjects[i]) + "228").GetValue() << endl;
+					cout << ("1337" + *(DesStroka*)(allObjects[i])).GetValue() << endl;
+					allObjects[i]->Show();
+				}
+				catch(exception e){
+					return false;
+				}
+				return true;
 			}
 		}
 	}
