@@ -1,10 +1,17 @@
 #pragma once
 #include "Stroka.h"
 #include<iostream>
+
 class DesStroka :
 	public Stroka
 {
+private:
+	static int ConstrWithoutArgs2;
+	static int ConstrInt2;
+	static int ConstrConstChar2;
+	static int ConstrConstDesStroka;
 public:
+	static void Diagnostic();
 	bool IsPositive();
 	int GetValue() const { return atoi(pointerChar); }
 

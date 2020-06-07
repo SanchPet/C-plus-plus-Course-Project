@@ -3,7 +3,15 @@
 
 using namespace std;
 
-
+void Stroka::Diagnostic()
+{
+	cout << "Конструктор Stroka(): " << ConstrWithoutArgs << " раз." << endl;
+	cout << "Конструктор Stroka(int): " << ConstrInt << " раз." << endl;
+	cout << "Конструктор Stroka(char): " << ConstrChar << " раз." << endl;
+	cout << "Конструктор Stroka(const char*): " << ConstrConstChar << " раз." << endl;
+	cout << "Конструктор Stroka(const Stroka&): " << ConstrConstStroka << " раз." << endl;
+	cout << "-----------------------------------------------" << endl;
+}
 
 void Stroka::Show(void)
 {
@@ -12,9 +20,9 @@ void Stroka::Show(void)
 	cout << "Отработал метод Stroka::Show" << endl;
 }
 
-
 Stroka::Stroka()
 {
+	ConstrWithoutArgs++;
 	length = 0;
 	pointerChar = nullptr;
 	cout << "Отработал конструктор Stroka()" << endl;
@@ -22,6 +30,7 @@ Stroka::Stroka()
 
 Stroka::Stroka(int input)
 {
+	ConstrInt++;
 	length = input;
 	pointerChar = new char[length + 1];
 	if (input == 0) pointerChar[0] = '\0';
@@ -30,6 +39,7 @@ Stroka::Stroka(int input)
 
 Stroka::Stroka(char input)
 {
+	ConstrChar++;
 	length = 1;
 	pointerChar = new char[length + 1];
 	pointerChar[0] = input;
@@ -39,6 +49,7 @@ Stroka::Stroka(char input)
 
 Stroka::Stroka(const char* input)
 {
+	ConstrConstChar++;
 	length = strlen(input);
 	pointerChar = new char[length + 1];
 	strcpy_s(pointerChar, length + 1, input);
@@ -47,6 +58,7 @@ Stroka::Stroka(const char* input)
 
 Stroka::Stroka(const Stroka& input)
 {
+	ConstrConstStroka++;
 	length = input.length;
 	pointerChar = new char[length + 1];
 	strcpy_s(pointerChar, length + 1, input.pointerChar);

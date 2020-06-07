@@ -3,6 +3,15 @@
 using namespace std;
 
 
+void DesStroka::Diagnostic()
+{
+	cout << "Конструктор DesStroka(): " << ConstrWithoutArgs2 << " раз." << endl;
+	cout << "Конструктор DesStroka(int): " << ConstrInt2 << " раз." << endl;
+	cout << "Конструктор DesStroka(const char*): " << ConstrConstChar2 << " раз." << endl;
+	cout << "Конструктор DesStroka(const DesStroka&): " << ConstrConstDesStroka << " раз." << endl;
+	cout << "-----------------------------------------------" << endl;
+}
+
 bool DesStroka::IsPositive()
 {
 	if (pointerChar[0] == '-') { cout << "Отработал метод DesStroka::IsPositive()" << endl; return false; }
@@ -12,14 +21,17 @@ bool DesStroka::IsPositive()
 }
 
 DesStroka::DesStroka() : Stroka() {
+	ConstrWithoutArgs2++;
 	cout << "Отработал конструктор DesStroka()" << endl;
 }
 
 DesStroka::DesStroka(int input) : Stroka(input) {
+	ConstrInt2++;
 	cout << "Отработал конструктор DesStroka(int)" << endl;
 }
 
 DesStroka::DesStroka(const char* input) : Stroka(input) {
+	ConstrConstChar2++;
 	if ((pointerChar[0] >= '0' && pointerChar[0] <= '9') || (pointerChar[0] =='+') || (pointerChar[0] == '-')) {
 		for (size_t i = 1; i < length; i++)
 		{
@@ -50,6 +62,7 @@ DesStroka::DesStroka(const char* input) : Stroka(input) {
 }
 
 DesStroka::DesStroka(const DesStroka& input) : Stroka(input) {
+	ConstrConstDesStroka++;
 	cout << "Отработал конструктор DesStroka(const DesStroka&)" << endl;
 }
 

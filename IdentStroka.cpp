@@ -14,11 +14,23 @@ char ToUpper(char ch)
 	return ch;
 }
 
+void IdentStroka::Diagnostic()
+{
+	cout << "Конструктор IdentStroka(): " << ConstrWithoutArgs2 << " раз." << endl;
+	cout << "Конструктор IdentStroka(int): " << ConstrInt2 << " раз." << endl;
+	cout << "Конструктор IdentStroka(char): " << ConstrChar2 << " раз." << endl;
+	cout << "Конструктор IdentStroka(const char*): " << ConstrConstChar2 << " раз." << endl;
+	cout << "Конструктор IdentStroka(const IdentStroka&): " << ConstrConstIdentStroka << " раз." << endl;
+	cout << "-----------------------------------------------" << endl;
+}
+
 IdentStroka::IdentStroka() : Stroka(){
+	ConstrWithoutArgs2++;
 	cout << "Отработал конструктор IdentStroka()" << endl;
 }
 
 IdentStroka::IdentStroka(char input) : Stroka(input) {
+	ConstrChar2++;
 	if ((pointerChar[0] >= 'A' && pointerChar[0] <= 'Z') || (pointerChar[0] >= 'a' && pointerChar[0] <= 'z') || (pointerChar[0]=='_')) {
 		pointerChar[0] = ToUpper(pointerChar[0]);
 		cout << "Отработал конструктор IdentStroka(char)" << endl;
@@ -35,10 +47,12 @@ IdentStroka::IdentStroka(char input) : Stroka(input) {
 
 IdentStroka::IdentStroka(int input) : Stroka(input)
 {
+	ConstrInt2++;
 	cout << "Отработал конструктор IdentStroka(int)" << endl;
 }
 
 IdentStroka::IdentStroka(const char* input) : Stroka(input) {
+	ConstrConstChar2++;
 	if ((pointerChar[0] >= 'A' && pointerChar[0] <= 'Z') || (pointerChar[0] >= 'a' && pointerChar[0] <= 'z') || (pointerChar[0] == '_')) {
 		for (size_t i = 0; i < length; i++)
 		{
@@ -72,6 +86,7 @@ IdentStroka::IdentStroka(const char* input) : Stroka(input) {
 
 IdentStroka::IdentStroka(const IdentStroka& input) : Stroka(input)
 {
+	ConstrConstIdentStroka++;
 	cout << "Отработал конструктор IdentStroka(const IdentStroka&)" << endl;
 }
 

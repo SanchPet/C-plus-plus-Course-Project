@@ -26,7 +26,8 @@ static vector<string> objectType;
 			cout << "---------------------------------------------------------------------------" << endl;
 			cout << "Во время проверки разработанных методов произошла ошибка. Используйте отладку для устранения." << endl;
 		}
-
+		DiagnosticPrint();
+		cout << "Тестирование завершено." << endl;
 	}
 
 	Stroka* input() {
@@ -102,4 +103,19 @@ static vector<string> objectType;
 				return true;
 			}
 		}
+	}
+
+	void DiagnosticPrint() {
+		cout << "---------------------------------------------------" << endl;
+		cout << "Количество вызванных конструкторов:" << endl;
+		cout << "---------------------------------------------------" << endl;
+		cout << "Класс Stroka:" << endl;
+		Stroka::Diagnostic();
+		cout << "---------------------------------------------------" << endl;
+		cout << "Класс DesStroka:" << endl;
+		DesStroka::Diagnostic();
+		cout << "---------------------------------------------------" << endl;
+		cout << "Класс IdentStroka:" << endl;
+		IdentStroka::Diagnostic();
+		cout << "---------------------------------------------------" << endl;
 	}
